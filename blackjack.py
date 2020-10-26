@@ -10,7 +10,7 @@ values = {'Two':2, 'Three':3, 'Four':4, 'Five':5 , 'Six':6, 'Seven':7, 'Eight':8
 
 game_on = False
 
-# Create card class
+# Create Card class
 
 class Card:
 
@@ -22,7 +22,7 @@ class Card:
         return self.rank + ' of ' + self.suit
 
 
-# Create deck class
+# Create Deck class
 
 class Deck:
 
@@ -40,3 +40,20 @@ class Deck:
 
     def deal(self):
         return self.deck.pop()
+
+
+# Create Hand class
+
+class Hand:
+
+    def __init__(self):
+        self.cards = [] # empty list
+        self.value = 0 # start with zero value
+        self.aces = 0 # add an attribut to keep track of aces
+
+    def add_card(self,card):
+        return self.cards.append(new_card)
+
+    def adjust_for_ace(self):
+        pass
+    
