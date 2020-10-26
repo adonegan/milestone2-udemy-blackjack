@@ -103,3 +103,11 @@ def take_bet(chips):
             else:
                 break
 
+
+# A function for taking hits
+
+def hit(deck,hand):
+
+    hand.add_card(deck.deal())
+    hand.adjust_for_ace()
+
