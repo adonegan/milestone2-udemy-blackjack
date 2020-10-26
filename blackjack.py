@@ -59,10 +59,17 @@ class Hand:
         self.aces = 0 # add an attribut to keep track of aces
 
     def add_card(self,card):
-        return self.cards.append(new_card)
-
+        self.cards.append(card)
+        self.value += values[card.rank]
+        # to aid function below
+        if card.rank == 'Ace':
+            self.aces += 1 # add to self.aces
+        
     def adjust_for_ace(self):
-        pass
+        # If a hand's value exceeds 21 but it contains an Ace, reduce the Ace's value from 11 to 1 and continue playing
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
 
 
 # Create Chips class
