@@ -29,17 +29,24 @@ class Deck:
     def __init__(self):
         # instantiate 52 card deck
         self.deck = [] #empty list
+
         for suit in suits:
-            for rank in ranks:
-                new_card = Card(suit,rank) # create card object
-                
-                self.deck.append(new_card)
+            for rank in ranks: 
+                self.deck.append(Card(suit,rank))
+
+    def __str__(self):
+        deck_comp = '' #empty string
+
+        for card in self.deck:
+            deck_comp += '\n ' + card.__str__() #add each Card object's print string
+        return 'The deck has: ' + deck_comp
 
     def shuffle(self):
         random.shuffle(self.deck)
 
     def deal(self):
-        return self.deck.pop()
+        single_card = self.deck.pop()
+        return single_card
 
 
 # Create Hand class
@@ -71,4 +78,5 @@ class Chips:
 
     def lose_bet(self):
         pass
-    
+
+
