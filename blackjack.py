@@ -8,7 +8,7 @@ values = {'Two':2, 'Three':3, 'Four':4, 'Five':5 , 'Six':6, 'Seven':7, 'Eight':8
 
 # Declare game state
 
-game_on = True
+playing = True
 
 # Create Card class
 
@@ -123,7 +123,7 @@ def hit_or_stand(deck,hand):
         if x[0].lower() == "h":
             hit(deck,hand) # hit function defined above
 
-        elif x[0].lower == "s":
+        elif x[0].lower() == "s":
             print('Player stands. Dealer is playing.')
 
             playing = False
@@ -168,7 +168,7 @@ def dealer_busts(player,dealer,chips):
     chips.win_bet()
 
 def dealer_wins(player,dealer,chips):
-    print('Dealer wins!'):
+    print('Dealer wins!')
     chips.lose_bet()
 
 def push(player,dealer):
@@ -244,7 +244,7 @@ while True:
     new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
 
     if new_game[0].lower()=='y':
-        playing:True
+        playing=True
         continue
     else:
         print("Thanks for playing!")
