@@ -132,3 +132,22 @@ def hit_or_stand(deck,hand):
             print('Sorry, please try again.')
             continue
         break
+
+
+# A function to display cards
+
+# * to print every item ina  collection
+# sep='\n' prints each item on a separate line
+# empty string in third print is to create space
+
+def show_some(player,dealer):
+    print("\nDealer's Hand: ")
+    print("<card hidden>")
+    print('',dealer.cards[1])
+    print("\nPlayer's Hand: ", *dealer.cards, sep='\n ') 
+    
+def show_all(player,dealer):
+    print("\nDealer's Hand: ", *dealer.cards, sep='\n ')
+    print("Dealer's Hand = ",dealer.value)
+    print("\nPlayer's Hand: ", *player.cards, sep='\n')
+    print("Player's Hand = ", player.value)
