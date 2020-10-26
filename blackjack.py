@@ -22,3 +22,21 @@ class Card:
         return self.rank + ' of ' + self.suit
 
 
+# Create deck class
+
+class Deck:
+
+    def __init__(self):
+        # instantiate 52 card deck
+        self.deck = [] #empty list
+        for suit in suits:
+            for rank in ranks:
+                new_card = Card(suit,rank) # create card object
+                
+                self.deck.append(new_card)
+
+    def shuffle(self):
+        random.shuffle(self.deck)
+
+    def deal(self):
+        return self.deck.pop()
