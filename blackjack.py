@@ -32,22 +32,29 @@ class Deck:
 
         for suit in suits:
             for rank in ranks: 
-                self.deck.append(Card(suit,rank))
+                self.deck.append(Card(suit,rank)) # card class above
+                # after being initialised, you have a list of cards
 
     def __str__(self):
-        deck_comp = '' #empty string
+        deck_comp = '' # empty string
 
         for card in self.deck:
-            deck_comp += '\n ' + card.__str__() #add each Card object's print string
+            deck_comp += '\n ' + card.__str__() # add each Card object's print string
         return 'The deck has: ' + deck_comp
 
     def shuffle(self):
+        # no return, just shuffling
         random.shuffle(self.deck)
 
     def deal(self):
+        # set it as a var, but return self.deck.pop() will also work
         single_card = self.deck.pop()
         return single_card
 
+        # TESTING SHUFFLE
+        # test_deck = Deck() (list in order)
+        # test_deck.shuffle()
+        # print(test_deck)
 
 # Create Hand class
 
@@ -59,9 +66,12 @@ class Hand:
         self.aces = 0 # add an attribut to keep track of aces
 
     def add_card(self,card):
+        # card passed in 
+        # from Deck.deal() --> single Card(suit,rank)
         self.cards.append(card)
         self.value += values[card.rank]
-        # to aid function below
+
+        # track aces
         if card.rank == 'Ace':
             self.aces += 1 # add to self.aces
         
@@ -71,6 +81,16 @@ class Hand:
             self.value -= 10
             self.aces -= 1
 
+        # TESTING
+        # test_deck = Deck()
+        # test_deck.shuffle()
+        # PLAYER
+        # test_player = Hand()
+        # DEAL 1 CARD FROM THE DECK CARD(SUIT,RANK)
+        # pulled_card = test_deck.deal()
+        # print(pulled_card)
+        # test_player.add_card(pulled_card)
+        # print(test_player.value)
 
 # Create Chips class
 
@@ -81,9 +101,11 @@ class Chips:
         self.bet = 0
 
     def win_bet(self):
+        # their total plus their bet
         self.total += self.bet
 
     def lose_bet(self):
+        # their total minue their bet
         self.total -= self.bet
 
 
@@ -120,7 +142,7 @@ def hit_or_stand(deck,hand):
     while True:
         x = input("Would you like to Hit or Stand? Enter 'h' or 's' ")
 
-        if x[0].lower() == "h":
+        if x[0].lower() == "h": # grab first letter of x input, is it equal to 'h'?
             hit(deck,hand) # hit function defined above
 
         elif x[0].lower() == "s":
